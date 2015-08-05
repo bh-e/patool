@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2015 Bastian Kleineidam
+# Copyright (C) 2014-2015 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,11 +13,27 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""Archive commands for the lcab program."""
+"""Archive commands for the zpaq program."""
+import os
 
-def create_cab (archive, compression, cmd, verbosity, filenames):
-    """Create a CAB archive."""
-    cmdlist = [cmd, '-r']
+def extract_zpaq(archive, compression, cmd, verbosity, outdir):
+    """Extract a ZPAQ archive."""
+    cmdlist = [cmd, 'x', os.path.abspath(archive)]
+    return (cmdlist, {'cwd': outdir})
+
+
+def list_zpaq(archive, compression, cmd, verbosity):
+    """List a ZPAQ archive."""
+    return [cmd, 'l', archive]
+
+
+def create_zpaq(archive, compression, cmd, verbosity, filenames):
+    """Create a ZPAQ archive."""
+    cmdlist = [cmd, 'c', archive]
     cmdlist.extend(filenames)
-    cmdlist.append(archive)
     return cmdlist
+
+
+def test_zpaq(archive, compression, cmd, verbosity):
+    """Test a ZPAQ archive."""
+    return [cmd, 'l', archive]

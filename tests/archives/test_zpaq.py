@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2012-2015 Bastian Kleineidam
+# Copyright (C) 2010-2015 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,11 +13,20 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""Archive commands for the lcab program."""
+from . import ArchiveTest, Content
+from .. import needs_program
 
-def create_cab (archive, compression, cmd, verbosity, filenames):
-    """Create a CAB archive."""
-    cmdlist = [cmd, '-r']
-    cmdlist.extend(filenames)
-    cmdlist.append(archive)
-    return cmdlist
+class TestZpaq(ArchiveTest):
+
+    program = 'zpaq'
+
+    @needs_program(program)
+    def test_zpaq(self):
+        self.archive_commands('t.zpaq', check=Content.Multifile)
+
+    @needs_program('file')
+    @needs_program(program)
+    def test_zpaq_file(self):
+        self.archive_extract('t.zpaq.foo', check=Content.Multifile)
+        self.archive_test('t.zpaq.foo')
+        self.archive_list('t.zpaq.foo')

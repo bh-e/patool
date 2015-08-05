@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2013-2015 Bastian Kleineidam
+# Copyright (C) 2010-2015 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,18 +18,23 @@ import os
 import sys
 import shutil
 from patoolib import util
-from . import basedir, datadir, needs_program, patool_cmd
+from . import datadir, needs_one_program, patool_cmd
 
-class ArchiveCreateTest (unittest.TestCase):
+class ArchiveRecompressTest (unittest.TestCase):
 
-    @needs_program('7z')
-    def test_create(self):
-        tmpdir = util.tmpdir(dir=basedir)
+    def recompress(self, name):
+        """Recompress archive with given name."""
+        archive = os.path.join(datadir, name)
+        ext = os.path.splitext(archive)[1]
+        tmpfile = util.tmpfile(suffix=ext)
         try:
-            files = [os.path.join(datadir, "t"), os.path.join(datadir, "t.txt")]
-            archive = os.path.join(tmpdir, "t.7z")
-            cmd = [sys.executable, patool_cmd, "-vv", "create", archive]
-            cmd.extend(files)
-            util.run_checked(cmd)
+            shutil.copy(archive, tmpfile)
+            util.run_checked([sys.executable, patool_cmd, "-vv", "recompress", tmpfile])
         finally:
-            shutil.rmtree(tmpdir)
+            if os.path.exists(tmpfile):
+                os.remove(tmpfile)
+
+    @needs_one_program(('zip', '7z'))
+    def test_repack (self):
+        self.recompress('t.zip')
+
