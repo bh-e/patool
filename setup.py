@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
-# Copyright (C) 2010-2015 Bastian Kleineidam
+# Copyright (C) 2010-2014 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@ from distutils import util
 from distutils.file_util import write_file
 
 AppName = "patool"
-AppVersion = "1.8"
+AppVersion = "1.7"
 MyName = "Bastian Kleineidam"
 MyEmail = "bastian.kleineidam@web.de"
 
@@ -431,8 +431,8 @@ AR (.a), ARC (.arc), ARJ (.arj), BZIP2 (.bz2),
 CAB (.cab), COMPRESS (.Z), CPIO (.cpio),
 DEB (.deb), DMS (.dms), FLAC (.flac), GZIP (.gz), ISO (.iso), LRZIP (.lrz),
 LZH (.lha, .lzh), LZIP (.lz), LZMA (.lzma), LZOP (.lzo), RPM (.rpm),
-RAR (.rar), RZIP (.rz), SHN (.shn), TAR (.tar), XZ (.xz), ZIP (.zip, .jar),
-ZOO (.zoo) and ZPAQ (.zpaq) formats.
+RAR (.rar), RZIP (.rz), SHN (.shn), TAR (.tar), XZ (.xz), ZIP (.zip, .jar)
+and ZOO (.zoo) formats.
 It relies on helper applications to handle those archive formats
 (for example bzip2 for BZIP2 archives).
 

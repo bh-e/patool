@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2010-2015 Bastian Kleineidam
+# Copyright (C) 2010-2014 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -82,36 +82,13 @@ test_bzip2 = \
   test_7z
 
 
-def create_7z(archive, compression, cmd, verbosity, filenames):
+def create_7z (archive, compression, cmd, verbosity, filenames):
     """Create a 7z archive."""
-    cmdlist = [cmd, 'a', '-t7z', '-mx=9', '--', archive]
+    cmdlist = [cmd, 'a', '--', archive]
     cmdlist.extend(filenames)
     return cmdlist
 
-
-def create_zip(archive, compression, cmd, verbosity, filenames):
-    """Create a ZIP archive."""
-    cmdlist = [cmd, 'a', '-tzip', '-mx=9', '--', archive]
-    cmdlist.extend(filenames)
-    return cmdlist
-
-
-def create_xz(archive, compression, cmd, verbosity, filenames):
-    """Create an XZ archive."""
-    cmdlist = [cmd, 'a', '-txz', '-mx=9', '--', archive]
-    cmdlist.extend(filenames)
-    return cmdlist
-
-
-def create_gzip(archive, compression, cmd, verbosity, filenames):
-    """Create a GZIP archive."""
-    cmdlist = [cmd, 'a', '-tgzip', '-mx=9', '--', archive]
-    cmdlist.extend(filenames)
-    return cmdlist
-
-
-def create_bzip2(archive, compression, cmd, verbosity, filenames):
-    """Create a BZIP2 archive."""
-    cmdlist = [cmd, 'a', '-tbzip2', '-mx=9', '--', archive]
-    cmdlist.extend(filenames)
-    return cmdlist
+create_zip = \
+  create_xz = \
+  create_gzip = \
+  create_7z
