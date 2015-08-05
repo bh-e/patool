@@ -1,5 +1,3 @@
-# patool-(.*)\.tar\.gz
-# watch control file for uscan
 version=3
 http://wummel.github.io/patool/ \
-  http://wummel\.github\.io/patool/dist/patool-(.*)\.tar\.gz
+(?:|.*/)patool(?:[_\-]v?|)(\d[^\s/]*)\.(?:tar\.xz|txz|tar\.bz2|tbz2|tar\.gz|tgz)

@@ -1,4 +1,6 @@
-:: run this in a windows sdk command shell
-set NAME=%1
-makecert.exe -r -pe -n "CN=%NAME% certificate" -b 01/01/2011 -e 01/01/2021 -eku 1.3.6.1.5.5.7.3.3 -sv %NAME%.pvk %NAME%.cer
-pvk2pfx.exe -pvk %NAME%.pvk -spc %NAME%.cer -pfx %NAME%.pfx
+U2FsdGVkX19Pmq1Bm6/4YM3Le/TjIyc0nUtQ9EpbxV4lKUUwjwKIS5gSY6qSGNRS
+v43i2jWTXLpd1Zx0hUw5E5OmC1jqwuCQEoMMCSF4n8gbEfgonForE/WFEIShoHfY
+QYUAwroJpfaV7XRCIsXZYKvz53Q5M3W1gs0iYWw2/JM81e5goQTTg+riZ2XaW7RZ
+M+XqLpIf3E4+yPDclmSh5mSOpErzJUaQ5LmvILL4GSeaAkC6yVa0CbkEBxlWFa+d
+HZQnRhV1XLGwDNU5kDlip9ykHBg8eWq42lucJqxNWB62R9uBIGXVP1lXM4aX0QAr
+P9YmfRjUwG0MKfp4Y2TOQlACom8ayd256lDjhyA/BRI=
