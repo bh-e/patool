@@ -3,7 +3,8 @@ Maintainer: Abhijith PA <abhijith@openmailbox.org>
 Section: utils
 Priority: optional
 Build-Depends: python-all (>= 2.7),
-               debhelper (>= 9)
+               debhelper (>= 9),
+               dh-python (>= 2.20150728)
 Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/patool.git
 Vcs-Git: git://anonscm.debian.org/collab-maint/patool.git
