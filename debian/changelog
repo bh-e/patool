@@ -4,10 +4,13 @@ patool (1.8-1) unstable; urgency=medium
   * New upstream release.
   * Changed debian/rules.
   * Deleted debian/patool.docs
+  * Changed debian/control
+     + Added new build depends,due to change in rules
+     + Removed some suggested packages since there were orphaned 
   * debian/patches
      + Adding to patch suppress lintian info  
 
- -- Abhijith PA <abhijith@openmailbox.org>  Wed, 29 Jul 2015 09:34:15 +0530
+ -- Abhijith PA <abhijith@openmailbox.org>  Wed, 15 Aug 2015 20:43:52 +0530
 
 patool (1.7-1) unstable; urgency=low
 
