@@ -5,7 +5,7 @@ patool (1.8-1) unstable; urgency=medium
   * Changed debian/rules.
   * Deleted debian/patool.docs
   * Changed debian/control
-     + Added new build depends,due to change in rules
+     + Added new build depends,bash-completion and dh-python
      + Removed some suggested packages since there were orphaned 
   * debian/patches
      + Adding to patch suppress lintian info  
