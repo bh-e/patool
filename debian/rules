@@ -24,8 +24,6 @@ override_dh_installchangelogs:
 #
 override_dh_install:
 	dh_install
-# install bash_completion script
-	install -m 644 patool.bash-completion $(CURDIR)/debian/patool/etc/bash_completion.d/patool
 
 # use xz for debian binary package compression
 #override_dh_builddeb:
