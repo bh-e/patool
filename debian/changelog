@@ -10,7 +10,7 @@ patool (1.8-1) unstable; urgency=medium
   * debian/patches
      + Adding to patch suppress lintian info  
 
- -- Abhijith PA <abhijith@openmailbox.org>  Wed, 15 Aug 2015 20:43:52 +0530
+ -- Abhijith PA <abhijith@openmailbox.org>  Mon, 17 Aug 2015 17:30:43 +0530
 
 patool (1.7-1) unstable; urgency=low
 
