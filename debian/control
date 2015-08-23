@@ -4,7 +4,7 @@ Section: utils
 Priority: optional
 Build-Depends: python-all (>= 2.7),
                debhelper (>= 9),
-               dh-python (>= 2.20150728),
+               dh-python ,
                bash-completion
 Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/patool.git
