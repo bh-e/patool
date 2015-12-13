@@ -125,6 +125,7 @@ def add_mimedb_data(mimedb):
     add_mimetype(mimedb, 'application/x-dms', '.dms')
     add_mimetype(mimedb, 'application/x-zip-compressed', '.crx')
     add_mimetype(mimedb, 'application/x-shar', '.shar')
+    add_mimetype(mimedb, 'application/x-vhd', '.vhd')
     add_mimetype(mimedb, 'audio/x-ape', '.ape')
     add_mimetype(mimedb, 'audio/x-shn', '.shn')
     add_mimetype(mimedb, 'audio/flac', '.flac')
@@ -575,7 +576,7 @@ def p7zip_supports_rar():
     # the subdirectory and codec name
     codecname = 'p7zip/Codecs/Rar29.so'
     # search canonical user library dirs
-    for libdir in ('/usr/lib', '/usr/local/lib'):
+    for libdir in ('/usr/lib', '/usr/local/lib', '/usr/lib64', '/usr/local/lib64', '/usr/lib/i386-linux-gnu', '/usr/lib/x86_64-linux-gnu'):
         fname = os.path.join(libdir, codecname)
         if os.path.exists(fname):
             return True
@@ -667,7 +668,7 @@ def link_or_copy(src, dst, verbosity=0):
         log_info("Copying %s -> %s" % (src, dst))
     try:
         os.link(src, dst)
-    except OSError:
+    except (AttributeError, OSError):
         try:
             shutil.copy(src, dst)
         except OSError as msg:
