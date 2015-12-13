@@ -1,3 +1,11 @@
+patool (1.10-1) unstable; urgency=low
+
+  * New upstream release.
+     + override test suites (Closes: #805219)
+     + new build-depends python-setuptools
+
+ -- Abhijith PA <abhijith@openmailbox.org>  Sat, 12 Dec 2015 22:08:25 +0530
+
 patool (1.8-1) unstable; urgency=medium
 
   * New maintainer (Closes: #774997)

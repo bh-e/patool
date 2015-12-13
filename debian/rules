@@ -5,13 +5,16 @@ export PYBUILD_NAME=patool
 %:
 	dh $@ --with python2,bash-completion --buildsystem=pybuild
 
+override_dh_auto_build:
+# force usage of setup.py over Makefile
+	dh_auto_build
+
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf _patool_configdata.py
 
-override_dh_auto_build:
-# force usage of setup.py over Makefile
-	dh_auto_build
+# do not run test suite when building
+override_dh_auto_test:
 
 override_dh_installchangelogs:
 # install custom changelog
