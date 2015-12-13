@@ -34,11 +34,11 @@ def _extract(archive, compression, cmd, format, verbosity, outdir):
         raise util.PatoolError(msg)
     return None
 
-def extract_lzma(archive, compression, cmd, verbosity, outdir):
+def extract_lzma(archive, compression, cmd, verbosity, interactive, outdir):
     """Extract an LZMA archive with the lzma Python module."""
     return _extract(archive, compression, cmd, lzma.FORMAT_ALONE, verbosity, outdir)
 
-def extract_xz(archive, compression, cmd, verbosity, outdir):
+def extract_xz(archive, compression, cmd, verbosity, interactive, outdir):
     """Extract an XZ archive with the lzma Python module."""
     return _extract(archive, compression, cmd, lzma.FORMAT_XZ, verbosity, outdir)
 
@@ -60,10 +60,10 @@ def _create(archive, compression, cmd, format, verbosity, filenames):
         raise util.PatoolError(msg)
     return None
 
-def create_lzma(archive, compression, cmd, verbosity, filenames):
+def create_lzma(archive, compression, cmd, verbosity, interactive, filenames):
     """Create an LZMA archive with the lzma Python module."""
     return _create(archive, compression, cmd, lzma.FORMAT_ALONE, verbosity, filenames)
 
-def create_xz(archive, compression, cmd, verbosity, filenames):
+def create_xz(archive, compression, cmd, verbosity, interactive, filenames):
     """Create an XZ archive with the lzma Python module."""
     return _create(archive, compression, cmd, lzma.FORMAT_XZ, verbosity, filenames)
