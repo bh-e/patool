@@ -23,5 +23,5 @@ override_dh_installchangelogs:
 override_dh_install:
 	dh_install
 # install bash_completion script
-	install -m 644 patool.bash-completion $(CURDIR)/debian/patool/etc/bash_completion.d/patool
+	install -m 644 patool.bash-completion $(CURDIR)/debian/patool/usr/share/bash-completion/completions/patool
 
