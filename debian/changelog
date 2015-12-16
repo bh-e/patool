@@ -3,6 +3,9 @@ patool (1.10-1) unstable; urgency=low
   * New upstream release.
      + override test suites (Closes: #805219)
      + new build-depends python-setuptools
+     + bash-completion to /usr/share/bash-completions/completions/
+     + cleaned debian/rules
+     + deleted pycompact,since they are obsolete
 
  -- Abhijith PA <abhijith@openmailbox.org>  Sat, 12 Dec 2015 22:08:25 +0530
 
@@ -14,7 +17,7 @@ patool (1.8-1) unstable; urgency=medium
   * Deleted debian/patool.docs
   * Changed debian/control
      + Added new build depends,bash-completion and dh-python
-     + Removed some suggested packages since there were orphaned
+     + Removed some suggested packages since they were orphaned
      + VCS field added 
   * debian/patches
      + Adding to patch suppress lintian info  
