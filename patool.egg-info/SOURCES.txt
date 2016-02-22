@@ -51,6 +51,7 @@ patoolib/programs/lzop.py
 patoolib/programs/mac.py
 patoolib/programs/nomarch.py
 patoolib/programs/p7azip.py
+patoolib/programs/p7rzip.py
 patoolib/programs/p7zip.py
 patoolib/programs/pbzip2.py
 patoolib/programs/pdlzip.py
@@ -102,6 +103,7 @@ tests/test_util.py
 tests/archives/__init__.py
 tests/archives/test_7z.py
 tests/archives/test_7za.py
+tests/archives/test_7zr.py
 tests/archives/test_ar.py
 tests/archives/test_arc.py
 tests/archives/test_archmage.py

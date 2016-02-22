@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2010-2015 Bastian Kleineidam
+# Copyright (C) 2010-2016 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ import shutil
 import stat
 import importlib
 # PEP 396
-from .configuration import Version as __version__
+from .configuration import App, Version as __version__
 __all__ = ['list_formats', 'list_archive', 'extract_archive', 'test_archive',
     'create_archive', 'diff_archives', 'search_archive', 'repack_archive',
     'recompress_archive']
@@ -196,7 +196,7 @@ ArchivePrograms = {
         'create': ('compress',),
     },
     '7z': {
-        None: ('7z', '7za'),
+        None: ('7z', '7za', '7zr'),
     },
     'rar': {
         None: ('rar',),
@@ -277,6 +277,7 @@ ArchivePrograms = {
 ProgramModules = {
     '7z': 'p7zip',
     '7za': 'p7azip',
+    '7zr': 'p7rzip',
     'uncompress.real': 'uncompress',
     'dpkg-deb': 'dpkg',
     'extract_chmlib': 'chmlib',
@@ -347,6 +348,10 @@ def program_supports_compression (program, compression):
 
 def list_formats ():
     """Print information about available archive formats to stdout."""
+    print("Archive programs of", App)
+    print("Archive programs are searched in the following directories:")
+    print(util.system_search_path())
+    print()
     for format in ArchiveFormats:
         print(format, "files:")
         for command in ArchiveCommands:
@@ -368,6 +373,7 @@ def list_formats ():
                         print("(rar archives not supported)", end=' ')
                 print()
             except util.PatoolError:
+                # display information what programs can handle this archive format
                 handlers = programs.get(None, programs.get(command))
                 print("   %8s: - (no program found; install %s)" %
                       (command, util.strlist_with_or(handlers)))
