@@ -1,3 +1,9 @@
+patool (1.12-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Abhijith PA <abhijith@openmailbox.org>  Mon, 22 Feb 2016 20:38:12 +0530
+
 patool (1.10-1) unstable; urgency=low
 
   * New upstream release.
