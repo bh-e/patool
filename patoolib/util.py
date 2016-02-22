@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2010-2015 Bastian Kleineidam
+# Copyright (C) 2010-2016 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -81,6 +81,14 @@ except ImportError:
         return None
 
 
+def system_search_path():
+    """Get the list of directories on a system to search for executable programs.
+    It is either the PATH environment variable or if PATH is undefined the value
+    of os.defpath.
+    """
+    return os.environ.get("PATH", os.defpath)
+
+
 # internal MIME database
 mimedb = None
 
@@ -109,11 +117,14 @@ def add_mimedb_data(mimedb):
     add_mimetype(mimedb, 'application/x-xz', '.xz')
     add_mimetype(mimedb, 'application/java-archive', '.jar')
     add_mimetype(mimedb, 'application/x-rar', '.rar')
+    add_mimetype(mimedb, 'application/x-rar', '.cbr')
     add_mimetype(mimedb, 'application/x-7z-compressed', '.7z')
+    add_mimetype(mimedb, 'application/x-7z-compressed', '.cb7')
     add_mimetype(mimedb, 'application/x-cab', '.cab')
     add_mimetype(mimedb, 'application/x-rpm', '.rpm')
     add_mimetype(mimedb, 'application/x-debian-package', '.deb')
     add_mimetype(mimedb, 'application/x-ace', '.ace')
+    add_mimetype(mimedb, 'application/x-ace', '.cba')
     add_mimetype(mimedb, 'application/x-archive', '.a')
     add_mimetype(mimedb, 'application/x-alzip', '.alz')
     add_mimetype(mimedb, 'application/x-arc', '.arc')
@@ -125,12 +136,14 @@ def add_mimedb_data(mimedb):
     add_mimetype(mimedb, 'application/x-dms', '.dms')
     add_mimetype(mimedb, 'application/x-zip-compressed', '.crx')
     add_mimetype(mimedb, 'application/x-shar', '.shar')
+    add_mimetype(mimedb, 'application/x-tar', '.cbt')
     add_mimetype(mimedb, 'application/x-vhd', '.vhd')
     add_mimetype(mimedb, 'audio/x-ape', '.ape')
     add_mimetype(mimedb, 'audio/x-shn', '.shn')
     add_mimetype(mimedb, 'audio/flac', '.flac')
     add_mimetype(mimedb, 'application/x-chm', '.chm')
     add_mimetype(mimedb, 'application/x-iso9660-image', '.iso')
+    add_mimetype(mimedb, 'application/zip', '.cbz')
     add_mimetype(mimedb, 'application/zip', '.epub')
     add_mimetype(mimedb, 'application/zip', '.apk')
     add_mimetype(mimedb, 'application/zpaq', '.zpaq')
@@ -587,9 +600,11 @@ def p7zip_supports_rar():
 def find_program (program):
     """Look for program in environment PATH variable."""
     if os.name == 'nt':
+        # Add some well-known archiver programs to the search path
         path = os.environ['PATH']
         path = append_to_path(path, get_nt_7z_dir())
         path = append_to_path(path, get_nt_mac_dir())
+        path = append_to_path(path, get_nt_winrar_dir())
     else:
         # use default path
         path = None
@@ -630,8 +645,13 @@ def get_nt_program_dir ():
 
 
 def get_nt_mac_dir ():
-    """Return Monkey Audio Compressor (MAC) directory, or an empty string."""
+    """Return Monkey Audio Compressor (MAC) directory."""
     return os.path.join(get_nt_program_dir(), "Monkey's Audio")
+
+
+def get_nt_winrar_dir():
+    """Return WinRAR directory."""
+    return os.path.join(get_nt_program_dir(), "WinRAR")
 
 
 def strlist_with_or (alist):

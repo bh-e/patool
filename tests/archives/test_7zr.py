@@ -16,16 +16,17 @@
 from . import ArchiveTest
 from .. import needs_program
 
-class TestPyzipfile (ArchiveTest):
+class Test7zr (ArchiveTest):
 
-    program = 'py_zipfile'
+    program = '7zr'
 
-    def test_py_zipfile(self):
-        self.archive_commands('t.zip')
-        self.archive_commands('t.cbz')
+    @needs_program(program)
+    def test_7zr (self):
+        self.archive_commands('t .7z')
+        self.archive_commands('t .cb7')
 
     @needs_program('file')
-    def test_py_zipfile_file(self):
-        self.archive_commands('t.zip.foo', skip_create=True)
-        self.archive_commands('t.cbz.foo', skip_create=True)
-
+    @needs_program(program)
+    def test_7z_file (self):
+        self.archive_commands('t.7z.foo', skip_create=True)
+        self.archive_commands('t.cb7.foo', skip_create=True)

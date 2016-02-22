@@ -1,3 +1,17 @@
+1.12 (released 17.1.2016)
+
+* Add winrar to default search path on Windows.
+* Improve usage documentation on Windows.
+  Closes: GH bug #19
+
+
+1.11 (released 9.1.2016)
+
+* Fix 7z unpacking when only p7zip with /usr/bin/7zr is installed.
+* Support comic book archives: .cb7 for 7z, .cba for ACE, .cbr for RAR,
+  .cbt for TAR and .cbz for ZIP archives.
+
+
 1.10 (released 10.12.2015)
 
 * Added support for VHD (Virtual Hard Disk) archives with 7z.

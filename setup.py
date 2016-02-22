@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
-# Copyright (C) 2010-2015 Bastian Kleineidam
+# Copyright (C) 2010-2016 Bastian Kleineidam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,9 +23,6 @@ if not hasattr(sys, "version_info") or sys.version_info < (2, 7, 0, "final", 0):
     raise SystemExit("This program requires Python 2.7 or later.")
 import os
 import re
-import shutil
-import glob
-import subprocess
 from setuptools import setup
 from distutils.core import Distribution
 from distutils.command.install_lib import install_lib
@@ -33,7 +30,7 @@ from distutils import util
 from distutils.file_util import write_file
 
 AppName = "patool"
-AppVersion = "1.10"
+AppVersion = "1.12"
 MyName = "Bastian Kleineidam"
 MyEmail = "bastian.kleineidam@web.de"
 
@@ -73,21 +70,6 @@ if os.name == 'nt':
     data_files.append(('share', ['doc/patool.txt']))
 else:
     data_files.append(('share/man/man1', ['doc/patool.1']))
-
-
-def get_nt_platform_vars ():
-    """Return program file path and architecture for NT systems."""
-    platform = util.get_platform()
-    if platform == "win-amd64":
-        # the Visual C++ runtime files are installed in the x86 directory
-        progvar = "%ProgramFiles(x86)%"
-        architecture = "amd64"
-    elif platform == "win32":
-        progvar = "%ProgramFiles%"
-        architecture = "x86"
-    else:
-        raise ValueError("Unsupported platform %r" % platform)
-    return os.path.expandvars(progvar), architecture
 
 
 class MyInstallLib (install_lib, object):
