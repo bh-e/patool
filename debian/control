@@ -7,7 +7,7 @@ Build-Depends: python-all (>= 2.7),
                dh-python ,
                bash-completion,
                python-setuptools
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/patool.git
 Vcs-Git: git://anonscm.debian.org/collab-maint/patool.git
 Homepage: http://wummel.github.io/patool/
