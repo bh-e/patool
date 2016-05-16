@@ -1,8 +1,15 @@
-patool (1.12-1) UNRELEASED; urgency=medium
+patool (1.12-1) unstable; urgency=low
 
   * New upstream release.
+  * Delete patool.dirs , No longer needed
+  * Adds patool.bash-completion in debian/ Thanks to bignose
+  * Change debian/rules
+     + Removed manually installing bash-completion files (closes: #815815)
+  * Change debian/control
+     + bumps Standard-Version to 3.9.8
+     + Vcs-git field change from git:// to https://   
 
- -- Abhijith PA <abhijith@openmailbox.org>  Mon, 22 Feb 2016 20:38:12 +0530
+ -- Abhijith PA <abhijith@openmailbox.org>  Mon, 16 May 2016 20:38:12 +0530
 
 patool (1.10-1) unstable; urgency=low
 
