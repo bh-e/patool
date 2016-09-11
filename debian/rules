@@ -3,7 +3,7 @@
 export PYBUILD_NAME=patool
 
 %:
-	dh $@ --with python2,bash-completion --buildsystem=pybuild
+	dh $@ --with python2,python3,bash-completion --buildsystem=pybuild
 
 override_dh_auto_build:
 # force usage of setup.py over Makefile
