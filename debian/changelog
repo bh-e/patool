@@ -1,4 +1,4 @@
-patool (1.12-2) UNRELEASED; urgency=low
+patool (1.12-2) experimental; urgency=low
 
   * Adds python3 support for patoolib 
 
