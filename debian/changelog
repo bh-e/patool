@@ -1,6 +1,12 @@
+patool (1.12-3) unstable; urgency=low
+
+  * Re-upload to unstable
+
+ -- Abhijith PA <abhijith@openmailbox.org>  Mon, 10 Oct 2016 09:01:42 +0530
+
 patool (1.12-2) experimental; urgency=low
 
-  * Adds python3 support for patoolib 
+  * Adds python3 support for patoolib (closes: #833880)
 
  -- Abhijith PA <abhijith@openmailbox.org>  Sun, 11 Sep 2016 16:20:56 +0530
 
